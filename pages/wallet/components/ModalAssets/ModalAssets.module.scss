@@ -1,0 +1,37 @@
+.modalAssets {
+  min-height: 560px;
+  font-family: 'SF Pro Text';
+  :global {
+    .modal-assets {
+      &__header {
+        display: flex;
+        padding: 16px;
+        align-items: center;
+        justify-content: center;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 20px;
+        text-align: center;
+        color: #151A30;
+        position: relative;
+        border-bottom: 1px solid #C5CEE0;
+        .icon-close {
+          position: absolute;
+          right: 16px;
+          top: 16px;
+          cursor: pointer;
+        }
+      }
+      &__list {
+        margin-top: 8px;
+        .asset {
+          background-color: white;
+          &:hover {
+            background-color: #EDF1F7;
+          }
+        }
+      }
+    }
+  }
+}

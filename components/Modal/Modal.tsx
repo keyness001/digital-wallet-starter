@@ -4,7 +4,6 @@ import { createPortal } from "react-dom";
 const Modal: React.FC<{}> = ({ children }) => {
   const el = useRef(document.createElement("div"));
   
-  
   useEffect(() => {
     const modalRoot = document.querySelector("#modal-root")
     const current = el.current;
@@ -16,4 +15,4 @@ const Modal: React.FC<{}> = ({ children }) => {
   return createPortal(children, el.current);
 };
 
-export default Modal;
+export default React.memo(Modal);

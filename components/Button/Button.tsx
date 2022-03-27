@@ -6,14 +6,15 @@ interface IButtonProps {
   props?: any;
   onClick?: any;
   extraClass?: string,
+  disabled?: boolean
 }
 
-const Button: React.FC<IButtonProps> = ({ onClick, children, extraClass, ...props }) => {
+const Button: React.FC<IButtonProps> = ({ onClick, children, extraClass, disabled, ...props }) => {
     return (
-        <button className={`button ${style.button} ${extraClass && style[extraClass]}`} {...props} onClick={onClick}>
+        <button disabled={disabled} className={`button ${style.button} ${extraClass && style[extraClass]}`} {...props} onClick={onClick}>
           {children}
         </button>
     );
 };
 
-export default Button;
+export default React.memo(Button);

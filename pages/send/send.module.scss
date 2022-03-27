@@ -46,6 +46,12 @@
         }
       }
     }
+    .input-wrapper.fromWallet {
+      .input.disable {
+        background: #EDF1F7;
+        color: #8F9BB3;
+      }
+    }
     .input-wrapper.asset {
       .icon {
         display: flex;

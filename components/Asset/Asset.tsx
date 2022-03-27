@@ -1,23 +1,28 @@
 import React from 'react';
 import styles from './Asset.module.scss';
 import Image from 'next/image';
+import { useSWRConfig } from 'swr';
+import { API_URL_DEMO, DEFAULT_WALLET_ID } from '../../constants';
+import { put } from '../../helpers';
 
 interface IAssetProps {
   icon: string,
   currency: string,
   value: number,
-  exChangeValue: number
-  onClick?(): void
+  exChangeValue: number|string
+  onChangeAsset(currency: string): void
 }
 
 const Asset: React.FC<IAssetProps> = ({
   icon,
   currency,
   value,
-  exChangeValue
+  exChangeValue,
+  onChangeAsset,
 }) => {
+
   return(
-    <div className={styles.asset}>
+    <div className={`asset ${styles.asset}`} onClick={(e) => onChangeAsset(currency)}>
       <Image src={icon} width={32} height={32} />
       <div className="value">
         <span className="value__main">{`${value} ${currency}`}</span>
@@ -27,4 +32,4 @@ const Asset: React.FC<IAssetProps> = ({
   )
 }
 
-export default Asset;
+export default React.memo(Asset);

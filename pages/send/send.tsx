@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useState, useRef } from 'react';
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import styles from './send.module.scss';
@@ -6,8 +6,37 @@ import Link from 'next/link';
 import Image from 'next/image';
 import FormInput from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
+import { useWalletInfo } from '../../hooks/useWalletInfo';
+import { useRouter } from 'next/router';
+import { routePages } from '../../constants';
+import ModalSent from './components/ModalSent';
 
 const Send: NextPage = () => {
+  const router = useRouter();
+  const maxAccountRef= useRef<any>(null);
+  const [show, setShow] = useState(false);
+  const { data = {}, error, sendAmount } = useWalletInfo();
+  const {
+    walletId,
+    currency,
+    assets
+  } = data;
+
+  const handleSetMax = useCallback(() => {
+    if (!assets[currency]) return;
+    maxAccountRef?.current?.changeValue(assets[currency].value);
+  }, [currency, assets, maxAccountRef.current])
+
+  const handleSendAsset = useCallback(async (e) => {
+    e.preventDefault();
+    if (e.target.checkValidity()) {
+      sendAmount(currency, maxAccountRef.current.getValue())
+      setShow(true)
+    }
+  }, [currency, maxAccountRef.current])
+
+  if (!assets) return null;
+
   return(
     <div>
       <Head>
@@ -26,17 +55,20 @@ const Send: NextPage = () => {
           Send Assets
         </div>
         <div className="send-page__content">
-          <form>
+          <form onSubmit={e => handleSendAsset(e)}>
             <FormInput
               label='From'
               type='text'
               name='fromWallet'
               disabled
+              value={`My wallet (${walletId})`}
+              extraClass='fromWallet'
             />
             <FormInput
               label='To'
               type='text'
               name='toWallet'
+              required
             />
             <FormInput
               label='Asset'
@@ -46,30 +78,33 @@ const Send: NextPage = () => {
               extraClass='asset'
               startIcon={
                 <>
-                  <Image src='/images/dollar.png' width={24} height={24} />
-                  <span className='currency'>USD</span>
+                  <Image src={`/images/${currency}.png`} width={24} height={24} />
+                  <span className='currency'>{currency}</span>
                 </>
               }
               endIcon={<Image src='/images/layers.svg' width={24} height={24} />}
             />
             <FormInput
+              ref={maxAccountRef}
               label={
                 <>
                   Amount
-                  <strong>available: 50 EUR</strong>
+                  <strong>{`available: ${assets[currency].value} ${currency}`}</strong>
                 </>
               }
               type='number'
               name='amount'
-              endIcon={<span className="max-account">Max</span>}
+              endIcon={<span className="max-account" onClick={handleSetMax}>Max</span>}
               extraClass='max-account'
+              required
             />
             <div className="group-btn">
-              <Button extraClass='outline'>Cancel</Button>
+              <Button extraClass='outline' onClick={() => router.push(routePages.wallet)}>Cancel</Button>
               <Button extraClass='primary'>Send</Button>
             </div>
           </form>
         </div>
+        { show ? <ModalSent handleHide={() => setShow(false)} /> : null }
       </main>
     </div>
   )

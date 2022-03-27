@@ -7,7 +7,8 @@ import FormInput from '../components/Input'
 import Button from '../components/Button/Button';
 
 import styles from './home.module.scss';
-import { get, API_URL_DEMO, DEFAULT_WALLET_ID } from '../constants';
+import { API_URL_DEMO, DEFAULT_WALLET_ID } from '../constants';
+import { get } from '../helpers';
 
 const Home: NextPage = () => {
   const router = useRouter();

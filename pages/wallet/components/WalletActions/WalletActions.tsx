@@ -2,8 +2,11 @@ import React from 'react';
 import styles from './WalletActions.module.scss';
 import Image from 'next/image';
 import Button from '../../../../components/Button/Button';
+import { useRouter } from 'next/router';
+import { routePages } from '../../../../constants';
 
 const WalletActions = () => {
+  const router = useRouter();
   return(
     <div className={styles.walletActions}>
       <span className="deposit disabled">
@@ -13,7 +16,7 @@ const WalletActions = () => {
         Deposit
       </span>
       <span className="send">
-        <Button>
+        <Button onClick={() => router.push(routePages.send)}>
           <Image src="/images/send.svg" width={32} height={32} />
         </Button>
         Send
