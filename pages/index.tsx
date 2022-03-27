@@ -2,12 +2,21 @@ import React from 'react';
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import FormInput from '../components/Input'
 import Button from '../components/Button/Button';
 
 import styles from './home.module.scss';
 
 const Home: NextPage = () => {
+  const router = useRouter()
+  const handleSubmit = (e: React.FormEvent<EventTarget>) => {
+    e.preventDefault();
+    if (e.target.checkValidity()) {
+      router.push('/wallet');
+    }
+  }
+
   return (
     <div>
       <Head>
@@ -25,13 +34,16 @@ const Home: NextPage = () => {
         </div>
         <p className='title'>Ronin Wallet</p>
         <p className='desc'>Your Digital Passport</p>
-        <FormInput
-          label='enter password'
-          type='password'
-          name='password'
-          endIcon={<Image src='/images/eye.svg' width={24} height={24} />}
-        />
-        <Button extraClass='primary'>Unlock</Button>
+        <form onSubmit={handleSubmit}>
+          <FormInput
+            label='enter password'
+            type='password'
+            name='password'
+            endIcon={<Image src='/images/eye.svg' width={24} height={24} />}
+            required
+          />
+          <Button extraClass='primary'>Unlock</Button>
+        </form>
       </main>
     </div>
   )

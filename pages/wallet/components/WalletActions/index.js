@@ -1,3 +1,3 @@
-import WalletActions './WalletActions';
+import WalletActions from './WalletActions';
 
 export default WalletActions;

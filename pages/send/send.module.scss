@@ -1,0 +1,94 @@
+.sendPage {
+  font-family: 'Inter';
+  :global {
+    .send-page {
+      &__header {
+        width: 100%;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 12px #f7f9fc;
+        padding: 18px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 20px;
+        text-align: center;
+        color: #151A30;
+        position: relative;
+        .icon {
+          position: absolute;
+          left: 24px;
+          top: 16px;
+        }
+      }
+      &__content {
+        width: 100%;
+        padding: 25px 20px;
+        .input-wrapper {
+          margin-bottom: 16px;
+        }
+        .group-btn {
+          position: absolute;
+          bottom: 20px;
+          left: 20px;
+          width: calc(100% - 40px);
+          display: flex;
+          right: le;
+          justify-content: space-between;
+          .button {
+            flex: 1;
+            &:first-child {
+              margin-right: 16px;
+            }
+          }
+        }
+      }
+    }
+    .input-wrapper.asset {
+      .icon {
+        display: flex;
+        align-items: center;
+        .currency {
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 20px;
+          color: #151A30;
+          margin-left: 8px;
+        }
+      }
+    }
+    .input-wrapper.max-account {
+      label {
+        display: flex;
+        justify-content: space-between;
+        strong {
+          font-style: normal;
+          font-weight: 700;
+          font-size: 10px;
+          line-height: 16px;
+          text-align: right;
+          letter-spacing: 0.5px;
+          text-transform: uppercase;
+          color: #151A30;
+        }
+      }
+      .icon.right {
+        .max-account {
+          background: #EEF3FB;
+          border-radius: 8px;
+          padding: 2px 8px;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 10px;
+          line-height: 16px;
+          letter-spacing: 0.5px;
+          text-transform: uppercase;
+          color: #57627B;
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,6 @@
 .inputWrapper {
   display: flex;
   flex-direction: column;
-  font-family: 'SF Pro Text';
   label {
     font-style: normal;
     font-weight: 700;
@@ -11,6 +10,7 @@
     color: #57627B;
     margin-bottom: 4px;
     text-align: left;
+    padding: 0 10px;
   }
   input {
     background: #FFFFFF;
@@ -26,19 +26,22 @@
     width: 100%;
   }
 
-  :global .input-group {
-    position: relative;
-  }
-
-  :global  .icon {
-    width: 24px;
-    height: 24px;
-    position: absolute;
-    cursor: pointer;
-    top: 50%;
-    transform: translateY(-50%);
-    &.right {
-      right: 16px;
+  :global {
+    .input-group {
+      position: relative;
+    }
+    .icon {
+      height: 24px;
+      position: absolute;
+      cursor: pointer;
+      top: 50%;
+      transform: translateY(-50%);
+      &.right {
+        right: 16px;
+      }
+      &.left {
+        left: 16px;
+      }
     }
   }
 }

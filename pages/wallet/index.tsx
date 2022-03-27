@@ -4,9 +4,9 @@ import Head from 'next/head'
 import Image from 'next/image'
 
 import styles from './wallet.module.scss';
-import WalletHeader from './components/WalletHeader/WalletHeader';
+import WalletHeader from './components/WalletHeader';
 import WalletInfo from './components/WalletInfo';
-import WalletActions from './components/WalletActions/WalletActions';
+import WalletActions from './components/WalletActions';
 import WalletAssets from './components/WalletAssets';
 
 const Wallet: NextPage = () => {
