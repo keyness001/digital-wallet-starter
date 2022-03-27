@@ -1,0 +1,31 @@
+.walletHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+  :global {
+    .wallet-name {
+      background-color: #F7F9FC;
+      border-radius: 8px;
+      font-family: 'SF Pro Text';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 20px;
+      color: #151A30;
+      padding: 6px 20px 6px 32px;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: #1273EA;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+      }
+    }
+  }
+}

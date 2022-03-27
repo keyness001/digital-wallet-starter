@@ -1,0 +1,30 @@
+.asset {
+  background: #F7F9FC;
+  border-radius: 8px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  :global {
+    .value {
+      display: flex;
+      flex-direction: column;
+      margin-left: 16px;
+      font-family: 'SF Pro Text';
+      &__main {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 20px;
+        color: #151A30;
+      }
+      &__sub {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16px;
+        color: #8F9BB3;
+      }
+    }
+  }
+}

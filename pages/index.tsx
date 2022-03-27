@@ -5,7 +5,7 @@ import Image from 'next/image'
 import FormInput from '../components/Input'
 import Button from '../components/Button/Button';
 
-import styles from './Home.module.scss';
+import styles from './home.module.scss';
 
 const Home: NextPage = () => {
   return (

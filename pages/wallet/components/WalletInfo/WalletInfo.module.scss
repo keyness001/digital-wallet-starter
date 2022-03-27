@@ -1,0 +1,62 @@
+.walletInfo {
+  background: linear-gradient(256.28deg, #1C94F4 0%, #1273EA 100%);
+  box-shadow: 0px 12px 20px -4px #c5cee0;
+  border-radius: 16px;
+  padding: 20px;
+  width: 100%;
+  font-family: 'SF Pro Text';
+  margin-bottom: 24px;
+  :global {
+    .wallet-address {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 20px;
+      color: #FFFFFF;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #68B8F8;
+      position: relative;
+      .address {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: #8DC9F9;
+        margin-left: 8px;
+      }
+      .copy {
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    }
+    .wallet-content {
+      padding-top: 12px;
+      position: relative;
+      &__value {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 40px;
+        color: #FFFFFF;
+        margin-bottom: 4px;
+      }
+      &__sub-value {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        color: #8DC9F9;
+      }
+      .sub-logo {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
+    }
+  }
+}

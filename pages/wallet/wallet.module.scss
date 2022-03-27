@@ -1,0 +1,10 @@
+.walletPage {
+  padding: 20px;
+  :global {
+    .bg-wallet {
+      position: absolute;
+      left: 14px;
+      top: 24px;
+    }
+  }
+}
