@@ -1,8 +1,9 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { DEFAULT_WALLET_ID } from '../../constants';
 
 type Data = {
-  walletAddress: string,
+  walletId: string,
   token: string
 }
 
@@ -11,7 +12,7 @@ export default function handler(
   res: NextApiResponse<Data>
 ) {
   res.status(200).json({
-    walledAddress: '7300 3777 3888 3334',
+    walletId: '7300 3777 3888 3334',
     token: 'demo'
   })
 }

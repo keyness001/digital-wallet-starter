@@ -7,12 +7,24 @@ import FormInput from '../components/Input'
 import Button from '../components/Button/Button';
 
 import styles from './home.module.scss';
+import { get, API_URL_DEMO, DEFAULT_WALLET_ID } from '../constants';
 
 const Home: NextPage = () => {
-  const router = useRouter()
+  const router = useRouter();
+
+  const login = async () => {
+    return await get({
+      url: API_URL_DEMO.login,
+      data: {
+        walletId: DEFAULT_WALLET_ID,
+      }
+    })
+  }
+
   const handleSubmit = (e: React.FormEvent<EventTarget>) => {
     e.preventDefault();
     if (e.target.checkValidity()) {
+      login()
       router.push('/wallet');
     }
   }
