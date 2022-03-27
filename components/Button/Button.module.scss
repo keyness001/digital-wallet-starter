@@ -1,0 +1,19 @@
+.button {
+  border-radius: 8px;
+  padding: 10px 20px;
+  border: none;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+}
+.primary {
+  background: linear-gradient(256.28deg, #1C94F4 0%, #1273EA 100%);
+  color: #FFFFFF;
+}
+.outline {
+  background: #F7F9FC;
+  color: #1273EA;
+}
