@@ -5,6 +5,8 @@ import Image from 'next/image'
 import FormInput from '../components/Input'
 import Button from '../components/Button/Button';
 
+import styles from './Home.module.scss';
+
 const Home: NextPage = () => {
   return (
     <div>
@@ -14,14 +16,22 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <Button extraClass='primary' />
+      <main className={`${styles.loginPage} container-page`}>
+        <div className='bg-login'>
+          <Image src='/images/bg-login.png' width={336} height={205} />
+        </div>
+        <div className='logo'>
+          <Image src='/images/logo.png' width={160} height={160} />
+        </div>
+        <p className='title'>Ronin Wallet</p>
+        <p className='desc'>Your Digital Passport</p>
         <FormInput
           label='enter password'
           type='password'
           name='password'
           endIcon={<Image src='/images/eye.svg' width={24} height={24} />}
         />
+        <Button extraClass='primary'>Unlock</Button>
       </main>
     </div>
   )

@@ -14,3 +14,17 @@ a {
 * {
   box-sizing: border-box;
 }
+
+p {
+  margin: 0;
+}
+
+.container-page {
+  max-width: 375px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}

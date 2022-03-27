@@ -16,7 +16,7 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
   { name, label, type, startIcon, endIcon, onClickIconRight, onClickIconLeft, ...otherProps }
 , ref) => {
   return (
-    <div className={styles.inputWrapper}>
+    <div className={`input-wrapper ${styles.inputWrapper}`}>
       {label && <label>{label}</label>}
       <div className='input-group'>
         {startIcon && <div className='icon left' onClick={onClickIconLeft}>{startIcon}</div>}
