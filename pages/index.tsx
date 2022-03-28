@@ -9,7 +9,7 @@ import Button from '../widgets/Button/Button';
 import { API_URL_DEMO, DEFAULT_WALLET_ID } from '../constants';
 import { get } from '../helpers';
 
-import styles from './home.module.scss';
+import styles from './Home.module.scss';
 
 const Home: NextPage = () => {
   const [visibility, toggleVisibility] = useState(false);
