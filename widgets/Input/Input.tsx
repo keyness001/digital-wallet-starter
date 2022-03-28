@@ -1,5 +1,5 @@
 import React, { ForwardRefRenderFunction, ReactElement, useState, useEffect, useImperativeHandle } from 'react';
-import styles from './input.module.scss';
+import styles from './Input.module.scss';
 
 interface InputProps {
     name: string;
