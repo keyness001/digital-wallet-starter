@@ -25,8 +25,8 @@ const request = (params: Params) => {
     body = JSON.stringify(params.data);
   }
 
-  var url = params.url + qs;
-
+  let url = params.url + qs;
+  console.log(url)
   return fetch(url, { method, headers, body }).then(res => res.json());
 }
 
@@ -38,3 +38,17 @@ export const exChangeToVND = (asset: Asset) => {
   const { value, exChangeRate } = asset
   return (value * exChangeRate).toLocaleString();
 }
+
+export const copyToClipboardWithCommand = (content: string) => {
+  if (navigator.clipboard && navigator.permissions) {
+    navigator.clipboard.writeText(content).then(() => alert('Copied'));
+  } else if (document.queryCommandSupported("copy")) {
+    const el = document.createElement("textarea");
+    el.value = content;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand("copy");
+    document.body.removeChild(el);
+    alert('Copied');
+  }
+};

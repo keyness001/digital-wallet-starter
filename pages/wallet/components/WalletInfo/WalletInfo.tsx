@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './WalletInfo.module.scss';
 import Image from 'next/image';
-import { exChangeToVND } from '../../../../helpers';
+import { exChangeToVND, copyToClipboardWithCommand } from '../../../../helpers';
 
 const WalletInfo = ({ data }) => {
   const {
@@ -18,7 +18,7 @@ const WalletInfo = ({ data }) => {
       <div className="wallet-address">
         My Wallet
         <span className='address'>{`(${walletId})`}</span>
-        <span className='copy'>
+        <span className='copy' onClick={() => { copyToClipboardWithCommand(walletId) }}>
           <Image src='/images/copy.png' width={16} height={16} />
         </span>
       </div>

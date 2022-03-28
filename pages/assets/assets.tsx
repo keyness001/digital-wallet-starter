@@ -1,10 +1,10 @@
 import React from 'react';
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import WalletContainer from './WalletContainer'
-import styles from './wallet.module.scss';
+import AssetsContainer from './AssetsContainer';
+import styles from './assets.module.scss';
 
-const Wallet: NextPage = () => {
+const Assets: NextPage = () => {
   return (
     <div>
       <Head>
@@ -13,12 +13,12 @@ const Wallet: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={`${styles.walletPage} container-page`}>
-        <WalletContainer />
+      <main className={`${styles.assetsPage} container-page`}>
+        <AssetsContainer />
       </main>
 
     </div>
   )
 }
 
-export default Wallet
+export default Assets;

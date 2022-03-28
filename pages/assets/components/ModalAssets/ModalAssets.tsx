@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Asset from '../../../../components/Asset';
 import { exChangeToVND } from '../../../../helpers';
 
-const ModalAssets = ({ data, onChangeAsset, handleHide }) => {
+const ModalAssets = ({ data, onChangeAsset, handleHide = () => {} }) => {
   const {
     currency,
     assets
@@ -28,6 +28,7 @@ const ModalAssets = ({ data, onChangeAsset, handleHide }) => {
               const exChangeValue = exChangeToVND(assetValue);
               return (
                 <Asset
+                  selected={key === currency}
                   icon={`/images/${key}.png`}
                   currency={key}
                   value={assetValue.value}

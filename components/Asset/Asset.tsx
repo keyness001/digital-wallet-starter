@@ -9,8 +9,9 @@ interface IAssetProps {
   icon: string,
   currency: string,
   value: number,
-  exChangeValue: number|string
-  onChangeAsset(currency: string): void
+  exChangeValue: number|string,
+  onChangeAsset(currency: string): void,
+  selected?: boolean
 }
 
 const Asset: React.FC<IAssetProps> = ({
@@ -19,10 +20,11 @@ const Asset: React.FC<IAssetProps> = ({
   value,
   exChangeValue,
   onChangeAsset,
+  selected
 }) => {
 
   return(
-    <div className={`asset ${styles.asset}`} onClick={(e) => onChangeAsset(currency)}>
+    <div className={`asset ${styles.asset} ${selected ? 'selected' : ''}`} onClick={(e) => onChangeAsset(currency)}>
       <Image src={icon} width={32} height={32} />
       <div className="value">
         <span className="value__main">{`${value} ${currency}`}</span>

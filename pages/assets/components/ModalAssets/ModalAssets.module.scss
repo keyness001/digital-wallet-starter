@@ -30,6 +30,9 @@
           &:hover {
             background-color: #EDF1F7;
           }
+          &.selected {
+            background: #EDF1F7;
+          }
         }
       }
     }

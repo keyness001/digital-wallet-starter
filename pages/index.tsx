@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -11,6 +11,7 @@ import { API_URL_DEMO, DEFAULT_WALLET_ID } from '../constants';
 import { get } from '../helpers';
 
 const Home: NextPage = () => {
+  const [visibility, toggleVisibility] = useState(false);
   const router = useRouter();
 
   const login = async () => {
@@ -26,7 +27,7 @@ const Home: NextPage = () => {
     e.preventDefault();
     if (e.target.checkValidity()) {
       login()
-      router.push('/wallet');
+      router.push('/assets');
     }
   }
 
@@ -50,10 +51,11 @@ const Home: NextPage = () => {
         <form onSubmit={handleSubmit}>
           <FormInput
             label='enter password'
-            type='password'
+            type={visibility ? 'text' : 'password'}
             name='password'
             endIcon={<Image src='/images/eye.svg' width={24} height={24} />}
             required
+            onClickIconRight={() => toggleVisibility(!visibility)}
           />
           <Button extraClass='primary'>Unlock</Button>
         </form>
