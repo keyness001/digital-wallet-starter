@@ -1,7 +1,7 @@
 import React from 'react';
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import WalletContainer from './WalletContainer'
+import WalletContainer from '../../containers/WalletContainer'
 import styles from './wallet.module.scss';
 
 const Wallet: NextPage = () => {

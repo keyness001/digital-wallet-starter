@@ -1,9 +1,15 @@
 import React from 'react';
 import styles from './WalletAssets.module.scss';
-import Asset from '../../../../components/Asset';
-import { exChangeToVND } from '../../../../helpers';
+import Asset from '../../widgets/Asset';
+import { exChangeToVND } from '../../helpers';
+import { WalletInfo } from '../../constants/types';
 
-const WalletAssets = ({ data, onChangeAsset }) => {
+interface IWalletAssetsProps {
+  data: WalletInfo,
+  onChangeAsset: any,
+}
+
+const WalletAssets: React.FC<IWalletAssetsProps> = ({ data = {}, onChangeAsset }) => {
   const {
     currency,
     assets
@@ -21,6 +27,7 @@ const WalletAssets = ({ data, onChangeAsset }) => {
             if (key === currency) return;
             return (
               <Asset
+                key={`wallet-asset-${key}`}
                 icon={`/images/${key}.png`}
                 currency={key}
                 value={assetValue.value}

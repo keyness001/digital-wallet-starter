@@ -1,12 +1,18 @@
 import React from 'react';
 import styles from './WalletInfo.module.scss';
 import Image from 'next/image';
-import { exChangeToVND, copyToClipboardWithCommand } from '../../../../helpers';
+import { exChangeToVND, copyToClipboardWithCommand } from '../../helpers';
+import { WalletInfo } from '../../constants/types';
+import { DEFAULT_WALLET_ID } from '../../constants';
 
-const WalletInfo = ({ data }) => {
+interface IWalletInfoProps {
+  data: WalletInfo,
+}
+
+const WalletInfo: React.FC<IWalletInfoProps> = ({ data = {} }) => {
   const {
-    walletId,
-    currency,
+    walletId = DEFAULT_WALLET_ID,
+    currency = 'USD',
     assets
   } = data;
 

@@ -3,12 +3,13 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import FormInput from '../components/Input'
-import Button from '../components/Button/Button';
+import FormInput from '../widgets/Input'
+import Button from '../widgets/Button/Button';
 
-import styles from './home.module.scss';
 import { API_URL_DEMO, DEFAULT_WALLET_ID } from '../constants';
 import { get } from '../helpers';
+
+import styles from './home.module.scss';
 
 const Home: NextPage = () => {
   const [visibility, toggleVisibility] = useState(false);
@@ -23,7 +24,7 @@ const Home: NextPage = () => {
     })
   }
 
-  const handleSubmit = (e: React.FormEvent<EventTarget>) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     if (e.target.checkValidity()) {
       login()

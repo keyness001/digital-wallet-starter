@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './WalletActions.module.scss';
 import Image from 'next/image';
-import Button from '../../../../components/Button/Button';
+import Button from '../../widgets/Button/Button';
 import { useRouter } from 'next/router';
-import { routePages } from '../../../../constants';
+import { routePages } from '../../constants';
 
 const WalletActions = () => {
   const router = useRouter();

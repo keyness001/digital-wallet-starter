@@ -1,9 +1,9 @@
 import React, { useCallback, useState } from 'react';
 
-import { useWalletInfo } from '../../hooks/useWalletInfo';
-import ModalAssets from './components/ModalAssets';
+import { useWalletInfo } from '../hooks/useWalletInfo';
+import ModalAssets from '../components/ModalAssets';
 import { useRouter } from 'next/router';
-import { routePages } from '../../constants';
+import { routePages } from '../constants';
 
 const AssetsContainer = () => {
   const { data, error, changeAsset } = useWalletInfo();

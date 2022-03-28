@@ -1,8 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, ReactNode } from "react";
 import { createPortal } from "react-dom";
 
-const Modal: React.FC<{}> = ({ children }) => {
-  const el = useRef(document.createElement("div"));
+interface IModalProps {
+  children: any
+}
+
+const Modal: React.FC<IModalProps> = ({ children }) => {
+  const el = useRef<any>(<div></div>);
   
   useEffect(() => {
     const modalRoot = document.querySelector("#modal-root")

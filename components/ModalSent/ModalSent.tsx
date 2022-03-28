@@ -1,9 +1,13 @@
 import React from 'react';
-import Modal from '../../../../components/Modal';
+import Modal from '../../widgets/Modal';
 import styles from './ModalSent.module.scss';
-import Button from '../../../../components/Button/Button';
+import Button from '../../widgets/Button';
 
-const ModalSent = ({ handleHide }) => {
+interface IModalSentProps {
+  handleHide(): void,
+}
+
+const ModalSent: React.FC<IModalSentProps> = ({ handleHide }) => {
   return (
     <Modal>
       <div className={`content ${styles.modalSent}`}>
