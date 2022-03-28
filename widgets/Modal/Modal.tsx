@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, ReactNode } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
 interface IModalProps {
@@ -6,17 +6,22 @@ interface IModalProps {
 }
 
 const Modal: React.FC<IModalProps> = ({ children }) => {
-  const el = useRef<any>(<div></div>);
-  
-  useEffect(() => {
-    const modalRoot = document.querySelector("#modal-root")
-    const current = el.current;
+  const el = useRef<any>(null);
+  const [mounted, setMounted] = useState(false);
 
+  useEffect(() => {
+    const modalRoot = document.querySelector("#modal-root");
+    el.current = document.createElement('div');
+    const current = el.current;
     modalRoot!.appendChild(current);
-    return () => void modalRoot!.removeChild(current);
+    setMounted(true);
+    return () => {
+      modalRoot!.removeChild(current);
+      setMounted(false);
+    }
   }, []);
 
-  return createPortal(children, el.current);
+  return mounted ? createPortal(children, el.current) : null;
 };
 
 export default React.memo(Modal);
